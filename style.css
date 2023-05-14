@@ -1,0 +1,11 @@
+main{
+  min-height: calc(100vh - 128px - 88px);
+}
+header{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.logo{
+  position: absolute;
+  width: 88px;
+  aspect-ratio: 1/1;
+}
