@@ -6,6 +6,13 @@ if (!isset($_SESSION)) session_start();
 
 $result = mysqli_query($con, "SELECT * FROM posts");
 
+if (isset($_GET['delete'])) {
+  $id = $_GET['delete'];
+  mysqli_query($con, "DELETE FROM posts WHERE id = '$id'");
+} else {
+  $_GET['delete'] = null;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,14 +69,25 @@ $result = mysqli_query($con, "SELECT * FROM posts");
     <div class="row justify-content-center">
     <? if (mysqli_num_rows($result) > 0): ?>
       <? while($row = mysqli_fetch_assoc($result)): ?>
-        <img src="<?= $row['image'] ?>"class="col-6 py-2">
-        <div class="col-7 py-2">
-          <h4><?= $row['name'] ?></h4>
-          <?= $row['text'] ?> <br>
-          <h6>Дата публикации<?= $row['date'] ?></h6>
-        </div>
+        <? if($_GET['delete'] != $row['id']): ?>
+          <img src="<?= $row['image'] ?>"class="col-6 py-2">
+          <div class="col-7 py-2">
+            <h4><?= $row['name'] ?></h4>
+            <?= $row['text'] ?> <br>
+            <h6>Дата публикации <?= $row['date'] ?></h6>
+            <? if (isset($_SESSION['email'])): ?>
+              <form method="GET">
+                <button type="submit" name="delete" value="<?= $row['id'] ?>" class="btn btn-primary mb-3">Удалить</button>
+              </form>
+              <? endif;?>
+              <div class="row justify-content-center">
+                <div class="col-10" style="height:1px; background: #ddd"></div>
+              </div>
+            </div>
+        <? endif; ?>
       <? endwhile; ?>
     <? endif; ?>
+    
     </div>
   </main>
 

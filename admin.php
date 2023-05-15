@@ -127,7 +127,7 @@ if (isset($_POST['name']) && isset($_POST['text']) && isset($_FILES['image'])) {
           <textarea rows="5" name="text" class="form-control mb-3" required></textarea>
 
           <label for="image" class="form-label">Изображение</label>
-          <input type="file" name="image" class="form-control mb-3" required>
+          <input type="file" name="image" class="form-control mb-3" required accept=".png,.jpg,.jpeg">
 
           <button type="submit" class="btn btn-primary mb-3">Добавить</button>
 
