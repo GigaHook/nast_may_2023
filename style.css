@@ -9,3 +9,12 @@ header{
   width: 88px;
   aspect-ratio: 1/1;
 }
+.help-link{
+  position: absolute;
+  width: 88px;
+  aspect-ratio: 1/1;
+  right: 0px;
+}
+.help-img{
+  width: 100%;
+}

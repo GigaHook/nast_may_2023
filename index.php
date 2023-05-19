@@ -26,6 +26,7 @@ if (isset($_GET['delete'])) {
 </head>
 <body>
   <img src="assets/images/logo.jpg" class="logo">
+  <a href="https://gosuslugi.ru/" class="help-link"><img src="assets/images/gosuslugi.jpg" class="help-img"></a>
   <header class="text-center">
     <h1>Канский детский дом им. Ю.А. Гагарина</h1>
     <h5 class="mb-2">Краевое государственное образовательное учреждение для детей-сирот, оставшихся без попечения родителей</h5>
@@ -67,6 +68,7 @@ if (isset($_GET['delete'])) {
   <main class="text-center container">
     <h1>Главная</h1>
     <div class="row justify-content-center">
+
     <? if (mysqli_num_rows($result) > 0): ?>
       <? while($row = mysqli_fetch_assoc($result)): ?>
         <? if($_GET['delete'] != $row['id']): ?>
@@ -79,7 +81,7 @@ if (isset($_GET['delete'])) {
               <form method="GET">
                 <button type="submit" name="delete" value="<?= $row['id'] ?>" class="btn btn-primary mb-3">Удалить</button>
               </form>
-              <? endif;?>
+            <? endif;?>
               <div class="row justify-content-center">
                 <div class="col-10" style="height:1px; background: #ddd"></div>
               </div>

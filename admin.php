@@ -52,6 +52,7 @@ if (isset($_POST['name']) && isset($_POST['text']) && isset($_FILES['image'])) {
 </head>
 <body>
   <img src="assets/images/logo.jpg" class="logo">
+  <a href="https://gosuslugi.ru/" class="help-link"><img src="assets/images/gosuslugi.jpg" class="help-img"></a>
   <header class="text-center">
     <h1>Канский детский дом им. Ю.А. Гагарина</h1>
     <h5 class="mb-2">Краевое государственное образовательное учреждение для детей-сирот, оставшихся без попечения родителей</h5>
